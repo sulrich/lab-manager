@@ -1,0 +1,40 @@
+
+
+application id's are from 1 < 1024
+
+localized to a userid ... /tmp/netiou-UIDHERE/sockets for app_id
+
+data structure
+
+two hashes one for available app_ids, the other for reserved app_ids 
+
+ - simple parsing and simple allocation on the fly simply push and pop the
+   array values and then flush them to disk.
+
+
+
+when parsing the NETMAP file, we should pay attention to the RTR_###
+variable.  for each POD we'll need to allocate a unique router ID.  
+
+this will need to be unique globally.  a pod cannot use the ID allocated
+from a previous invocation.
+
+notes on parsing the NETMAP file
+
+ - load netmap template
+ - determine how many unique RTR_### entries we see
+ - allocate RTR_### elements populate filterVars hash for replacement
+
+ - cache the RTR_### information across pods if we're in batch creation
+   mode to prevent the parsing process each time.  
+
+ - we should probably flush the app_id on each pod creation to the
+   app_id.db file to prevent reallocation.
+
+
+open NETMAP template file
+ - parse for app_id count and hash population
+ - foreach pod in batch
+   - allocate range of app_id's for the pod
+
+

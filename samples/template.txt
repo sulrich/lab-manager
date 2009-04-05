@@ -1,0 +1,5 @@
+# note this file is sensitive to spaces and such which might be fed to the variables
+iou_image=12.2s/foo.iou
+startup_tmplt=/Users/sulrich/Desktop/telco-iou/startup.sh
+base_config_arch=/Users/sulrich/Desktop/telco-iou/test.tar
+netmap_tmplt=/Users/sulrich/Desktop/telco-iou/NETMAP
